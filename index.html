@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaControl - Alimentación</title>
+
+<!-- Archivos CSS separados -->
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/sidebar.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/table.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <div class="logo">
+        <h2>💧 AquaControl</h2>
+        <span>Monitoreo Piscícola</span>
+    </div>
+
+    <ul class="menu">
+        <li><a href="#">📊 Panel</a></li>
+        <li><a href="#">🌊 Estanques</a></li>
+        <li><a href="#" class="active">🍽️ Alimentación</a></li>
+        <li><a href="#">💧 Calidad del Agua</a></li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+
+    <div class="header">
+        <div>
+            <h1>Alimentación</h1>
+            <p>Registra y controla la alimentación diaria</p>
+        </div>
+        <button class="btn">+ Nuevo Registro</button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Estanque</th>
+                    <th>Tipo Alimento</th>
+                    <th>Cantidad (kg)</th>
+                    <th>Observaciones</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026-02-11</td>
+                    <td><strong>Estanque Norte A</strong></td>
+                    <td>Concentrado 32%</td>
+                    <td><strong>15.5</strong></td>
+                    <td>Buena aceptación</td>
+                    <td class="delete">🗑️</td>
+                </tr>
+                <tr>
+                    <td>2026-02-11</td>
+                    <td><strong>Estanque Sur B</strong></td>
+                    <td>Trucha Crecimiento</td>
+                    <td><strong>22</strong></td>
+                    <td>Distribución uniforme</td>
+                    <td class="delete">🗑️</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        AquaControl - Sistema de Monitoreo de Piscícolas
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+.main {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 22px;
+    color: #333;
+}
+
+.header p {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.btn {
+    background-color: #1f7ea3;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #176682;
+}
+
+/* Footer */
+.footer {
+    margin-top: auto;
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    padding-top: 20px;
+}
