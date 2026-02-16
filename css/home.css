@@ -1,8 +1,12 @@
 /* Fondo con imagen */
 .home-bg {
+    min-height: 130vh;   /* Ocupa toda la altura de la pantalla */
+    display: flex;       /* Activa centrado */
+    
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("../imagenes/Peces.jpg");
+        url("../Imagenes/Peces.jpeg");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,13 +21,15 @@
     background: rgba(0, 0, 0, 0.6);
     padding: 40px;
     border-radius: 12px;
-    text-align: center;
+    text-align: justify;
+
 }
 
 /* Título principal */
 .home-content h1 {
     font-size: 32px;
     margin-bottom: 20px;
+    text-align:center;
 }
 
 /* Subtítulo */
@@ -31,11 +37,33 @@
     font-size: 22px;
     margin-bottom: 15px;
     color: #1f7ea3;
+    text-align:center;
 }
 
 /* Texto */
 .home-content p {
     font-size: 16px;
     line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Subtítulo */
+.home-content h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #1f7ea3;
+    text-align:center;
+}
+
+/* Subtítulo */
+.home-content h4 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #1f7ea3;
+    text-align:center;
+}
+
+h5 {
+    font-size: 15px;
     margin-bottom: 15px;
 }
