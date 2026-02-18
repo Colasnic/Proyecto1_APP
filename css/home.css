@@ -5,8 +5,7 @@
     
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("../Imagenes/Peces.jpeg");
-
+        url("../imagenes/Peces.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -14,7 +13,17 @@
     justify-content: center;
     align-items: center;
 }
-
+.imag-home {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../imagenes/Sensor.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
 /* Contenedor del texto */
 .home-content {
     max-width: 800px;
