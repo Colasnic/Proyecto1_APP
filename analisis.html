@@ -9,9 +9,20 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/analisis.css">
 
+    <!--
+        analisis.html
+        ----------------
+        Página de visualización de análisis de calidad del agua.
+        Estructura principal:
+          - Sidebar: navegación lateral
+          - .main-dashboard: área principal con tarjetas y gráficos
+          - .chart-modal: modal para ampliar gráficos al hacer clic
+        Los scripts se cargan al final para garantizar que los elementos
+        canvas existan antes de inicializar Chart.js.
+    -->
 </head>
-
 <body>
 
 <!-- Sidebar -->
@@ -31,12 +42,39 @@
 </div>
 
 <!-- Main Content -->
-<div class="main">
-    <div class="home-content">
-        <h1>Análisis de Datos</h1>
-        <p>Sección para visualizar y analizar datos registrados del sistema.</p>
+<div class="main-dashboard">
+
+    <div class="dashboard-header">
+        <h1>📊 Análisis de Calidad del Agua</h1>
+        <p>Visualización estadística basada en datos abiertos de datos.gov.co</p>
+    </div>
+
+    <div class="cards-container">
+
+        <div class="card">
+            <h3>Oxígeno Disuelto por Fecha</h3>
+            <canvas id="graficoOxigeno"></canvas>
+        </div>
+
+        <div class="card">
+            <h3>Comparación Promedio Anual (Oxígeno vs Turbiedad)</h3>
+            <canvas id="graficoDepto"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="chart-modal" id="chartModal">
+    <div class="chart-modal-content">
+        <canvas id="modalCanvas"></canvas>
     </div>
 </div>
 
+<!-- Scripts SIEMPRE al final -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/analisis.js"></script>
+
 </body>
 </html>
+

@@ -1,0 +1,103 @@
+/*
+    css/analisis.css
+    ------------------
+    Estilos específicos para la página de análisis:
+        - Diseño del dashboard principal
+        - Estilos de las tarjetas y canvas
+        - Estilos del modal que muestra gráficos ampliados
+*/
+
+/* ===== DASHBOARD ===== */
+
+.main-dashboard {
+
+    padding: 40px 60px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    width: 100%;
+    color: white;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.dashboard-header h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.dashboard-header p {
+    opacity: 0.8;
+    font-size: 15px;
+}
+
+/* ===== GRID MÁS GRANDE ===== */
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+/* ===== TARJETAS ===== */
+
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    color: #333;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+}
+
+.card h3 {
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Canvas responsive y con máximo alto razonable */
+canvas {
+    width: 100% !important;
+    max-height: 520px;
+    height: auto !important;
+    display: block;
+}
+
+/* ===== MODAL EXPANDIR ===== */
+
+.chart-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.chart-modal-content {
+    width: 85%;
+    height: 80%;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.chart-modal canvas {
+    height: 100% !important;
+}
+
+#indiceResultado {
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 15px;
+}
