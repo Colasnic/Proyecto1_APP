@@ -10,11 +10,14 @@
 /* ===== DASHBOARD ===== */
 
 .main-dashboard {
-
-    padding: 40px 60px;
+    margin-left: 240px; 
+    width: calc(100% - 240px); 
+    box-sizing: border-box; /* Crucial para que el padding no sume ancho */
+    padding: 40px;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    width: 100%;
-    color: white;
+    min-height: 100vh;
+    display: block; /* Cambiamos flex por block para evitar el bucle de redimensionamiento */
+    overflow-x: hidden; /* Evita que las gráficas se salgan de lado */
 }
 
 .dashboard-header {
@@ -24,7 +27,15 @@
 
 .dashboard-header h1 {
     font-size: 36px;
-    font-weight: 600;
+    font-weight: 300;
+    color:aliceblue;
+
+}
+h2 {
+    color: aliceblue; /* Sin el punto inicial */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Una fuente limpia */
 }
 
 .dashboard-header p {

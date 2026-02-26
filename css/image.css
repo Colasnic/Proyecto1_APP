@@ -5,5 +5,8 @@
     border-radius: 25px;
     display: block;
     margin: 0 auto;
+    margin-top: 20px;      /* espacio arriba de la imagen */
+    margin-bottom: 20px;   /* espacio abajo */
+    width: 300px;
 }
 

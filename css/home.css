@@ -1,18 +1,35 @@
-/* Fondo con imagen */
-.home-bg {
-    min-height: 130vh;   /* Ocupa toda la altura de la pantalla */
-    display: flex;       /* Activa centrado */
-    
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("../imagenes/Peces.jpeg");
+/* 1. Aplicamos el fondo al BODY o un contenedor maestro para que nunca se acabe */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url("../imagenes/Peces.jpeg");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Esto evita el fondo blanco al bajar */
     background-repeat: no-repeat;
-    color: white;
-    justify-content: center;
-    align-items: center;
 }
+
+.home-bg { 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column; /* Importante para que el Arduino quede abajo del texto */
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box; /* Evita que el padding rompa el diseño */
+}
+
+/* 3. Estilo para el cuadro oscuro que rodea al texto (opcional) */
+.content-wrapper {
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+}
+
 .imag-home {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),

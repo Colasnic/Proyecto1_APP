@@ -5,6 +5,21 @@
     display: flex;
     flex-direction: column;
     padding: 20px 0;
+
+    /* --- CAMBIOS PARA QUE SEA INFINITA Y ESTÁTICA --- */
+    position: fixed;  
+    top: 0;           
+    left: 0;           
+    height: 100vh;     
+    z-index: 1000;     
+}
+.home-bg {
+    /* El margen debe ser igual o un poco mayor al ancho de la sidebar */
+    margin-left: 240px; 
+    
+    /* Asegúrate de que el contenido tenga aire a los lados */
+    padding: 40px;
+    box-sizing: border-box;
 }
 
 .logo {
