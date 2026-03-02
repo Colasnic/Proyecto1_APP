@@ -1,0 +1,67 @@
+ .main-dashboard { 
+    padding: 48px 60px; 
+    min-height: 100vh; 
+    background: linear-gradient(180deg,#14313a 0%, #19434a 100%); 
+}
+
+.content-panel { 
+    max-width: 2400px; 
+    margin: 0 auto; 
+    background: #ffffffee; 
+    padding: 28px; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25); 
+}
+
+.dashboard-header { 
+    text-align: center; 
+    color: #fff;
+    margin-bottom: 18px;
+}
+            
+.dashboard-header h1 { 
+    color: #fff; 
+    font-size: 28px; 
+    margin: 0 0 6px 0; 
+}
+            
+section.content-panel h3 { 
+    color: #111; 
+    margin-top: 0; 
+}
+            
+#csvFile { 
+    display: inline-block; 
+    padding: 8px 12px; 
+    border-radius: 6px; 
+}
+            
+label { 
+    color: #111; 
+    display: inline-block; 
+    margin-right: 8px; 
+}
+            
+select { 
+    padding: 6px 8px; 
+    border-radius: 6px; 
+    border: 1px solid #ccc; 
+}
+            
+.controls { 
+    display: flex; 
+    gap: 16px; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    margin: 14px 0 20px; 
+}
+            
+#graficoCSV { 
+    width: 100% !important; 
+    height: 5000px !important;
+ }
+            
+@media (max-width: 800px) { 
+    .main-dashboard { padding: 20px; } 
+    .content-panel{ padding:16px } 
+}

@@ -5,21 +5,22 @@
     <title>Cargar Dataset - AquaControl</title>
 
         <!--
-                cargaArchivos.html
-                - Página para que el usuario suba un CSV y genere gráficos personalizados.
-                - Usa PapaParse (CDN) para parsear correctamente CSVs con comas en campos entrecomillados
-                    y Chart.js para la visualización.
-                - Elementos principales:
-                    * `#csvFile` - input file para cargar CSV
-                    * `#columnSelect`, `#columnSelect2` - selectores para elegir columnas a graficar
-                    * `#graficoCSV` - canvas donde se renderiza el gráfico
+            cargaArchivos.html
+            - Página para que el usuario suba un CSV y genere gráficos personalizados.
+            - Usa PapaParse (CDN) para parsear correctamente CSVs con comas en campos entrecomillados
+                y Chart.js para la visualización.
+            - Elementos principales:
+              * `#csvFile` - input file para cargar CSV
+              * `#columnSelect`, `#columnSelect2` - selectores para elegir columnas a graficar
+              * `#graficoCSV` - canvas donde se renderiza el gráfico
         -->
 
-        <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/analisis.css">
+    <link rel="stylesheet" href="css/cargaArchivos.css">
 </head>
 
 <body>
@@ -50,23 +51,25 @@
         <p>Sube un archivo CSV y genera tu propio gráfico</p>
     </div>
 
-    <section style="margin-top:40px">
+    <section class="content-panel">
 
         <h3>Cargar Dataset CSV</h3>
 
-        <input type="file" id="csvFile" accept=".csv">
+        <div class="controls">
+            <div>
+                <input type="file" id="csvFile" accept=".csv">
+            </div>
 
-        <br><br>
+            <div>
+                <label for="columnSelect">Seleccionar columna 1:</label>
+                <select id="columnSelect"></select>
+            </div>
 
-        <label>Seleccionar columna 1:</label>
-        <select id="columnSelect"></select>
-
-        <br><br>
-
-        <label>Seleccionar columna 2:</label>
-        <select id="columnSelect2"></select>
-
-        <br><br>
+            <div>
+                <label for="columnSelect2">Seleccionar columna 2:</label>
+                <select id="columnSelect2"></select>
+            </div>
+        </div>
 
         <canvas id="graficoCSV"></canvas>
 
