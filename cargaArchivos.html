@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cargar Dataset - AquaControl</title>
+
+        <!--
+                cargaArchivos.html
+                - Página para que el usuario suba un CSV y genere gráficos personalizados.
+                - Usa PapaParse (CDN) para parsear correctamente CSVs con comas en campos entrecomillados
+                    y Chart.js para la visualización.
+                - Elementos principales:
+                    * `#csvFile` - input file para cargar CSV
+                    * `#columnSelect`, `#columnSelect2` - selectores para elegir columnas a graficar
+                    * `#graficoCSV` - canvas donde se renderiza el gráfico
+        -->
+
+        <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/analisis.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+    <div class="logo">
+        <h2>💧 AquaControl</h2>
+        <span>Monitoreo Piscícola</span>
+    </div>
+
+    <ul class="menu">
+        <li><a href="index.html" class="active">🏠 Home</a></li>
+        <li><a href="dispositivos.html">🔌 Dispositivos</a></li>
+        <li><a href="circuito.html">🔧 Circuito</a></li>
+        <li><a href="codificacion.html">💻 Codificación</a></li>
+        <li><a href="analisis.html">📊 Análisis de Datos</a></li>       
+        <li><a href="#">💧 Calidad del Agua</a></li>
+        <li><a href="cargaArchivos.html">📂 Carga de archivos</a></li>
+    </ul>
+</div>
+
+
+<!-- MAIN -->
+<div class="main-dashboard">
+
+    <div class="dashboard-header">
+        <h1>📂 Visualizar Dataset Personalizado</h1>
+        <p>Sube un archivo CSV y genera tu propio gráfico</p>
+    </div>
+
+    <section style="margin-top:40px">
+
+        <h3>Cargar Dataset CSV</h3>
+
+        <input type="file" id="csvFile" accept=".csv">
+
+        <br><br>
+
+        <label>Seleccionar columna 1:</label>
+        <select id="columnSelect"></select>
+
+        <br><br>
+
+        <label>Seleccionar columna 2:</label>
+        <select id="columnSelect2"></select>
+
+        <br><br>
+
+        <canvas id="graficoCSV"></canvas>
+
+    </section>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="js/cargaArchivos.js"></script>
+
+</body>
+</html>
