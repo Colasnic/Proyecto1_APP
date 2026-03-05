@@ -2,31 +2,30 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis de Datos - AquaControl</title>
+    <title>Cargar Dataset - AquaControl</title>
+
+        <!--
+            cargaArchivos.html
+            - Página para que el usuario suba un CSV y genere gráficos personalizados.
+            - Usa PapaParse (CDN) para parsear correctamente CSVs con comas en campos entrecomillados
+                y Chart.js para la visualización.
+            - Elementos principales:
+              * `#csvFile` - input file para cargar CSV
+              * `#columnSelect`, `#columnSelect2` - selectores para elegir columnas a graficar
+              * `#graficoCSV` - canvas donde se renderiza el gráfico
+        -->
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/analisis.css">
-
-    <!--
-        analisis.html
-        ----------------
-        Página de visualización de análisis de calidad del agua.
-        Estructura principal:
-          - Sidebar: navegación lateral
-          - .main-dashboard: área principal con tarjetas y gráficos
-          - .chart-modal: modal para ampliar gráficos al hacer clic
-        Los scripts se cargan al final para garantizar que los elementos
-        canvas existan antes de inicializar Chart.js.
-    -->
+    <link rel="stylesheet" href="css/cargaArchivos.css">
 </head>
+
 <body>
 
-<!-- Sidebar -->
-<div class="sidebar">
+    <div class="sidebar">
     <div class="logo">
          <h2>💧 OVA</h2>
         <span>Sensor de oxigeno disuelto</span>
@@ -35,47 +34,50 @@
     <ul class="menu">
         <li><a href="index.html" class="active">🏠 Home</a></li>
         <li><a href="dispositivos.html">🔌 Dispositivos</a></li>
-        <li><a href="circuito.html">🔧 Circuito</a></li>
-        <li><a href="codificacion.html">💻 Codificación</a></li>
+        <li><a href="circuito y Codificacion.html">🔧 Circuito</a></li>
         <li><a href="analisis.html">📊 Análisis de Datos</a></li>       
-        <li><a href="cargaArchivos.html">📂 Carga de archivos</a></li>
     </ul>
 </div>
 
-<!-- Main Content -->
+
+<!-- MAIN -->
 <div class="main-dashboard">
 
     <div class="dashboard-header">
-        <h1>📊 Análisis de Calidad del Agua</h1>
+       <h1>📊 Análisis de Calidad del Agua</h1>
         <h2>Visualización estadística basada en datos abiertos de datos.gov.co</h2>
     </div>
 
-    <div class="cards-container">
+    <section class="content-panel">
 
-        <div class="card">
-            <h3>Oxígeno Disuelto por Fecha</h3>
-            <canvas id="graficoOxigeno"></canvas>
+        <h3>Cargar Dataset CSV</h3>
+
+        <div class="controls">
+            <div>
+                <input type="file" id="csvFile" accept=".csv">
+            </div>
+
+            <div>
+                <label for="columnSelect">Seleccionar columna 1:</label>
+                <select id="columnSelect"></select>
+            </div>
+
+            <div>
+                <label for="columnSelect2">Seleccionar columna 2:</label>
+                <select id="columnSelect2"></select>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Comparación Promedio Anual (Oxígeno vs Turbiedad)</h3>
-            <canvas id="graficoDepto"></canvas>
-        </div>
+        <canvas id="graficoCSV"></canvas>
 
-    </div>
+    </section>
 
 </div>
 
-<div class="chart-modal" id="chartModal">
-    <div class="chart-modal-content">
-        <canvas id="modalCanvas"></canvas>
-    </div>
-</div>
 
-<!-- Scripts SIEMPRE al final -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="js/analisis.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="js/cargaArchivos.js"></script>
 
 </body>
 </html>
-

@@ -96,13 +96,24 @@ window.onclick = function(event) {
    ==================================== */
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("codeModal");
+    const arduinoModal = document.getElementById("arduinoModal"); // Modal del código Arduino
     const imageModal = document.getElementById("imageModal");
-    if (modal ) {
+    const otroModal = document.getElementById("otroModal"); // ← ejemplo de otro modal
+
+    if (modal) {
         modal.style.display = "none";
+    }
+
+    if (arduinoModal) {
+        arduinoModal.style.display = "none";
     }
 
     if (imageModal) {
         imageModal.style.display = "none";
+    }
+
+    if (otroModal) {    // ← nuevo if agregado
+        otroModal.style.display = "none";
     }
 });
 
@@ -178,3 +189,4 @@ function closeImageModal() {
     var modal = document.getElementById('imageModal');
     modal.style.display = 'none';
 }
+
