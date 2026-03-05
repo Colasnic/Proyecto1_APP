@@ -289,7 +289,6 @@ table[cellspacing="8"] tr:hover td {
     z-index: 10;
     width: 100%;
     text-align: right;
-    background-color: rgba(0, 0, 0, 0.3);
     padding: 10px 20px;
 }
 
@@ -408,3 +407,4 @@ table[cellspacing="8"] tr:hover td {
     margin: 0;
     font-weight: 700;
 }
+

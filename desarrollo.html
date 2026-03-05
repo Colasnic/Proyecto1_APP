@@ -157,115 +157,115 @@
             </table>
         </div>
         
-        <div class="arduino-container">
-    <h4>CÓDIGO DEL ARDUINO</h4>
-    <pre class="code-block" onclick="openArduinoModal()">
-        <code>
-<span class="preprocessor">#include</span> <span class="string">&lt;SPI.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="string">&lt;SD.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="string">&lt;TimeLib.h&gt;</span> <span class="comment">// Librería para el reloj interno por software</span>
+        <div class="calibracion-container">
+            <h4>CÓDIGO DEL ARDUINO</h4>
+            <pre class="code-block" onclick="openCodeModalArduino()">
+                <code>
+                    <span class="preprocessor">#include</span> <span class="string">&lt;SPI.h&gt;</span>
+                    <span class="preprocessor">#include</span> <span class="string">&lt;SD.h&gt;</span>
+                    <span class="preprocessor">#include</span> <span class="string">&lt;TimeLib.h&gt;</span> <span class="comment">// Librería para el reloj interno por software</span>
 
-<span class="preprocessor">#define</span> <span class="constant">DO_PIN</span> <span class="number">A0</span>
-<span class="preprocessor">#define</span> <span class="constant">VREF</span> <span class="number">5000</span>
-<span class="preprocessor">#define</span> <span class="constant">ADC_RES</span> <span class="number">1024</span>
-<span class="preprocessor">#define</span> <span class="constant">CHIP_SELECT</span> <span class="number">4</span>
+                    <span class="preprocessor">#define</span> <span class="constant">DO_PIN</span> <span class="number">A0</span>
+                    <span class="preprocessor">#define</span> <span class="constant">VREF</span> <span class="number">5000</span>
+                    <span class="preprocessor">#define</span> <span class="constant">ADC_RES</span> <span class="number">1024</span>
+                    <span class="preprocessor">#define</span> <span class="constant">CHIP_SELECT</span> <span class="number">4</span>
 
-<span class="comment">// --- AJUSTA ESTOS VALORES ANTES DE SUBIR EL CÓDIGO ---</span>
-<span class="type">int</span> <span class="variable">hora</span> = <span class="number">8</span>;
-<span class="type">int</span> <span class="variable">minuto</span> = <span class="number">10</span>;
-<span class="type">int</span> <span class="variable">segundo</span> = <span class="number">0</span>;
-<span class="type">int</span> <span class="variable">dia</span> = <span class="number">5</span>;
-<span class="type">int</span> <span class="variable">mes</span> = <span class="number">3</span>;
-<span class="type">int</span> <span class="variable">anio</span> = <span class="number">2026</span>;
+                    <span class="comment">// --- AJUSTA ESTOS VALORES ANTES DE SUBIR EL CÓDIGO ---</span>
+                    <span class="type">int</span> <span class="variable">hora</span> = <span class="number">8</span>;
+                    <span class="type">int</span> <span class="variable">minuto</span> = <span class="number">10</span>;
+                    <span class="type">int</span> <span class="variable">segundo</span> = <span class="number">0</span>;
+                    <span class="type">int</span> <span class="variable">dia</span> = <span class="number">5</span>;
+                    <span class="type">int</span> <span class="variable">mes</span> = <span class="number">3</span>;
+                    <span class="type">int</span> <span class="variable">anio</span> = <span class="number">2026</span>;
 
-<span class="type">const uint16_t</span> <span class="variable">DO_Table[41]</span> = {
-    14460, 14220, 13820, 13440, 13090, 12740, 12420, 12110, 11810, 11530,
-    11260, 11010, 10770, 10530, 10300, 10080, 9860, 9660, 9460, 9270,
-    9080, 8900, 8730, 8570, 8410, 8250, 8110, 7960, 7820, 7690,
-    7560, 7430, 7300, 7180, 7070, 6950, 6840, 6730, 6630, 6530, 6410
-};
+                    <span class="type">const uint16_t</span> <span class="variable">DO_Table[41]</span> = {
+                        14460, 14220, 13820, 13440, 13090, 12740, 12420, 12110, 11810, 11530,
+                        11260, 11010, 10770, 10530, 10300, 10080, 9860, 9660, 9460, 9270,
+                        9080, 8900, 8730, 8570, 8410, 8250, 8110, 7960, 7820, 7690,
+                        7560, 7430, 7300, 7180, 7070, 6950, 6840, 6730, 6630, 6530, 6410
+                    };
 
-<span class="type">uint16_t</span> <span class="variable">cal1_V</span> = <span class="number">1600</span>;
-<span class="type">uint8_t</span> <span class="variable">cal1_T</span> = <span class="number">25</span>;
-<span class="type">uint8_t</span> <span class="variable">tempActual</span> = <span class="number">25</span>;
-<span class="type">bool</span> <span class="variable">sdDisponible</span> = <span class="keyword">false</span>;
+                    <span class="type">uint16_t</span> <span class="variable">cal1_V</span> = <span class="number">1600</span>;
+                    <span class="type">uint8_t</span> <span class="variable">cal1_T</span> = <span class="number">25</span>;
+                    <span class="type">uint8_t</span> <span class="variable">tempActual</span> = <span class="number">25</span>;
+                    <span class="type">bool</span> <span class="variable">sdDisponible</span> = <span class="keyword">false</span>;
 
-<span class="keyword">void</span> <span class="function">setup</span>() {
-    <span class="function">Serial.begin</span>(<span class="number">115200</span>);
-    <span class="function">delay</span>(<span class="number">1000</span>);
-    <span class="function">setTime</span>(hora, minuto, segundo, dia, mes, anio); <span class="comment">// Inicializa reloj interno</span>
+                    <span class="keyword">void</span> <span class="function">setup</span>() {
+                        <span class="function">Serial.begin</span>(<span class="number">115200</span>);
+                        <span class="function">delay</span>(<span class="number">1000</span>);
+                        <span class="function">setTime</span>(hora, minuto, segundo, dia, mes, anio); <span class="comment">// Inicializa reloj interno</span>
 
-    <span class="function">Serial.print</span>(F("Iniciando SD..."));
-    <span class="keyword">if</span> (<span class="function">SD.begin</span>(CHIP_SELECT)) {
-        sdDisponible = true;
-        <span class="function">Serial.println</span>(F(" LISTA."));
-        <span class="type">File</span> dataFile = SD.open("LOG_OD.csv", FILE_WRITE);
-        <span class="keyword">if</span> (dataFile) {
-            dataFile.println(F("Fecha,Hora,Temp(C),Voltaje(mV),Oxigeno(mg/L)"));
-            dataFile.close();
-        }
-    } <span class="keyword">else</span> {
-        <span class="function">Serial.println</span>(F(" FALLO SD."));
-    }
+                        <span class="function">Serial.print</span>(F("Iniciando SD..."));
+                        <span class="keyword">if</span> (<span class="function">SD.begin</span>(CHIP_SELECT)) {
+                            sdDisponible = true;
+                            <span class="function">Serial.println</span>(F(" LISTA."));
+                            <span class="type">File</span> dataFile = SD.open("LOG_OD.csv", FILE_WRITE);
+                            <span class="keyword">if</span> (dataFile) {
+                                dataFile.println(F("Fecha,Hora,Temp(C),Voltaje(mV),Oxigeno(mg/L)"));
+                                dataFile.close();
+                            }
+                        } <span class="keyword">else</span> {
+                            <span class="function">Serial.println</span>(F(" FALLO SD."));
+                        }
 
-    <span class="function">Serial.println</span>(F("--- CONTROL ---"));
-    <span class="function">Serial.println</span>(F("- Escribe CAL para calibrar al aire"));
-}
+                        <span class="function">Serial.println</span>(F("--- CONTROL ---"));
+                        <span class="function">Serial.println</span>(F("- Escribe CAL para calibrar al aire"));
+                    }
 
-<span class="keyword">void</span> <span class="function">loop</span>() {
-    <span class="type">uint16_t</span> adcRaw = <span class="function">analogRead</span>(DO_PIN);
-    <span class="type">uint32_t</span> voltage_mv = (uint32_t)VREF * adcRaw / ADC_RES;
+                    <span class="keyword">void</span> <span class="function">loop</span>() {
+                        <span class="type">uint16_t</span> adcRaw = <span class="function">analogRead</span>(DO_PIN);
+                        <span class="type">uint32_t</span> voltage_mv = (uint32_t)VREF * adcRaw / ADC_RES;
 
-    <span class="keyword">if</span> (<span class="function">Serial.available</span>() > 0) {
-        <span class="type">String</span> input = <span class="function">Serial.readString</span>();
-        input.trim();
-        input.toUpperCase();
+                        <span class="keyword">if</span> (<span class="function">Serial.available</span>() > 0) {
+                            <span class="type">String</span> input = <span class="function">Serial.readString</span>();
+                            input.trim();
+                            input.toUpperCase();
 
-        <span class="keyword">if</span> (input == "CAL") {
-            cal1_V = (uint16_t)voltage_mv;
-            <span class="function">Serial.print</span>(F(">> CALIBRADO A: ")); <span class="function">Serial.print</span>(cal1_V); <span class="function">Serial.println</span>(F(" mV"));
-        } <span class="keyword">else if</span> (input.startsWith("T")) {
-            <span class="type">int</span> nuevaTemp = input.substring(1).toInt();
-            <span class="keyword">if</span> (nuevaTemp >= 0 && nuevaTemp <= 40) {
-                tempActual = (uint8_t)nuevaTemp;
-                <span class="function">Serial.print</span>(F(">> TEMP AJUSTADA: ")); <span class="function">Serial.println</span>(tempActual);
-            }
-        }
-    }
+                            <span class="keyword">if</span> (input == "CAL") {
+                                cal1_V = (uint16_t)voltage_mv;
+                                <span class="function">Serial.print</span>(F(">> CALIBRADO A: ")); <span class="function">Serial.print</span>(cal1_V); <span class="function">Serial.println</span>(F(" mV"));
+                            } <span class="keyword">else if</span> (input.startsWith("T")) {
+                                <span class="type">int</span> nuevaTemp = input.substring(1).toInt();
+                                <span class="keyword">if</span> (nuevaTemp >= 0 && nuevaTemp <= 40) {
+                                    tempActual = (uint8_t)nuevaTemp;
+                                    <span class="function">Serial.print</span>(F(">> TEMP AJUSTADA: ")); <span class="function">Serial.println</span>(tempActual);
+                                }
+                            }
+                        }
 
-    <span class="type">uint16_t</span> V_saturation = (uint32_t)cal1_V + 35 * tempActual - 35 * cal1_T;
-    <span class="type">uint16_t</span> tableValue = DO_Table[tempActual];
-    <span class="type">uint32_t</span> do_raw = voltage_mv * tableValue / V_saturation;
-    <span class="type">float</span> do_mgL = do_raw / 1000.0;
+                        <span class="type">uint16_t</span> V_saturation = (uint32_t)cal1_V + 35 * tempActual - 35 * cal1_T;
+                        <span class="type">uint16_t</span> tableValue = DO_Table[tempActual];
+                        <span class="type">uint32_t</span> do_raw = voltage_mv * tableValue / V_saturation;
+                        <span class="type">float</span> do_mgL = do_raw / 1000.0;
 
-    <span class="type">String</span> fechaStr = String(day()) + "/" + String(month()) + "/" + String(year());
-    <span class="type">String</span> horaStr = String(hour()) + ":" + String(minute()) + ":" + String(second());
+                        <span class="type">String</span> fechaStr = String(day()) + "/" + String(month()) + "/" + String(year());
+                        <span class="type">String</span> horaStr = String(hour()) + ":" + String(minute()) + ":" + String(second());
 
-    <span class="function">Serial.print</span>(fechaStr + " " + horaStr);
-    <span class="function">Serial.print</span>(F(" | Temp: ")); <span class="function">Serial.print</span>(tempActual);
-    <span class="function">Serial.print</span>(F("C | mV: ")); <span class="function">Serial.print</span>(voltage_mv);
-    <span class="function">Serial.print</span>(F(" | OD: ")); <span class="function">Serial.print</span>(do_mgL);
+                        <span class="function">Serial.print</span>(fechaStr + " " + horaStr);
+                        <span class="function">Serial.print</span>(F(" | Temp: ")); <span class="function">Serial.print</span>(tempActual);
+                        <span class="function">Serial.print</span>(F("C | mV: ")); <span class="function">Serial.print</span>(voltage_mv);
+                        <span class="function">Serial.print</span>(F(" | OD: ")); <span class="function">Serial.print</span>(do_mgL);
 
-    <span class="keyword">if</span> (sdDisponible) {
-        <span class="type">File</span> dataFile = SD.open("LOG_OD.csv", FILE_WRITE);
-        <span class="keyword">if</span> (dataFile) {
-            dataFile.print(fechaStr); dataFile.print(",");
-            dataFile.print(horaStr); dataFile.print(",");
-            dataFile.print(tempActual); dataFile.print(",");
-            dataFile.print(voltage_mv); dataFile.print(",");
-            dataFile.println(do_mgL);
-            dataFile.close();
-            <span class="function">Serial.println</span>(F(" [Guardado]"));
-        } <span class="keyword">else</span> {
-            <span class="function">Serial.println</span>(F(" [Error SD]"));
-        }
-    }
+                        <span class="keyword">if</span> (sdDisponible) {
+                            <span class="type">File</span> dataFile = SD.open("LOG_OD.csv", FILE_WRITE);
+                            <span class="keyword">if</span> (dataFile) {
+                                dataFile.print(fechaStr); dataFile.print(",");
+                                dataFile.print(horaStr); dataFile.print(",");
+                                dataFile.print(tempActual); dataFile.print(",");
+                                dataFile.print(voltage_mv); dataFile.print(",");
+                                dataFile.println(do_mgL);
+                                dataFile.close();
+                                <span class="function">Serial.println</span>(F(" [Guardado]"));
+                            } <span class="keyword">else</span> {
+                                <span class="function">Serial.println</span>(F(" [Error SD]"));
+                            }
+                        }
 
-    <span class="function">delay</span>(<span class="number">2000</span>);
-}
-        </code>
-    </pre>
-</div>
+                        <span class="function">delay</span>(<span class="number">2000</span>);
+                    }
+            </code>
+        </pre>
+    </div>
      <link rel="stylesheet" href="css/image.css">
 
         <img src="Imagenes/Circuito_Completo.png" class="imagenes" onclick="openImageModal(this.src)">
@@ -317,9 +317,9 @@
 
 
 
-<div id="arduinoModal" class="modal">
+<div id="codeModalArduino" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeCodeModal()">&times;</span>
+        <span class="close" onclick="closeCodeModalArduino()">&times;</span>
         <h4>CÓDIGO DEL ARDUINO</h4>
         <pre class="modal-code">
             <code>
