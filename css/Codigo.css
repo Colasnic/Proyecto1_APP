@@ -1,0 +1,11 @@
+pre.codigo {
+    background-color: #4846ae; /* fondo negro */
+    color: #00ff00;         /* letras verdes tipo terminal */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 14px;
+    overflow-x: auto;       /* scroll horizontal si es necesario */
+    white-space: pre;       /* mantiene espacios y saltos de línea */
+    margin: 20px auto;
+}

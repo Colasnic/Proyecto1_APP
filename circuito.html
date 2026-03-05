@@ -17,8 +17,8 @@
 <!-- Sidebar -->
 <div class="sidebar">
     <div class="logo">
-        <h2>💧 AquaControl</h2>
-        <span>Monitoreo Piscícola</span>
+         <h2>💧 OVA</h2>
+        <span>Sensor de oxigeno disuelto</span>
     </div>
 
     <ul class="menu">
@@ -27,16 +27,131 @@
         <li><a href="circuito.html">🔧 Circuito</a></li>
         <li><a href="codificacion.html">💻 Codificación</a></li>
         <li><a href="analisis.html">📊 Análisis de Datos</a></li>       
-        <li><a href="#">💧 Calidad del Agua</a></li>
         <li><a href="cargaArchivos.html">📂 Carga de archivos</a></li>
     </ul>
 </div>
 
 <!-- Main Content -->
-<div class="main">
+<div class="main home-bg">
     <div class="home-content">
         <h1>Circuito</h1>
-        <p>Sección para mostrar el diseño del circuito y diagramas eléctricos.</p>
+        <p> Acontinuación se presenta el diseño del circuito y diagramas eléctricos para desarrollar el sensor.</p>
+        
+        <h4>Esquematico general del circuito</h4>
+
+       <p>
+        sadsadasdasdadasdsa
+
+       </p>
+
+        <link rel="stylesheet" href="css/image.css">
+
+        <img src="Imagenes/Cirtucito.png" class="imagenes">
+
+        <h4>ESPECIFICACIONES DEL MÓDULO</h4>
+    <div class="table-container">
+    <table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>No</th>
+        <th>Etiqueta</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>Salida de señal analógica</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>+</td>
+        <td>Vcc</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>-</td>
+        <td>GND</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>BCN</td>
+        <td>Conector cable sonda</td>
+    </tr>
+</table>
+    </div>
+<h4>CÓDIGO DE CALIBRACIÓN</h4>
+<div class="codigo">
+<pre class="Codigo">
+<code>
+#include &lt;Arduino.h&gt;
+
+#define VREF    5000 //VREF(mv)
+#define ADC_RES 1024 //ADC Resolution
+
+uint32_t raw;
+
+void setup()
+{
+    Serial.begin(115200);
+}
+
+void loop()
+{
+    raw=analogRead(A1);
+    Serial.println("raw:\t"+String(raw)+"\tVoltage(mv)"+String(raw*VREF/ADC_RES));
+    delay(1000);
+}
+</code>
+</pre>
+</div>
+     <h4>Conexion modulo arduino con SD</h4>
+    <p> 
+        Para conectar el módulo de oxígeno disuelto al Arduino, se deben seguir los siguientes pasos:
+
+        1. Conectar el pin de salida analógica (A) del módulo al pin A1 del Arduino.
+        2. Conectar el pin de alimentación positiva (+) del módulo al pin de 5V del Arduino.
+        3. Conectar el pin de tierra (-) del módulo al pin GND del Arduino.
+        4. Asegurarse de que la sonda esté correctamente conectada al conector BCN del módulo.
+
+        Una vez realizadas estas conexiones, el Arduino podrá leer los valores analógicos proporcionados por el sensor de oxígeno disuelto y procesarlos según sea necesario para su aplicación específica.
+    </p>
+     <link rel="stylesheet" href="css/image.css">
+
+        <img src="Imagenes/Modulo_MicroSD.png" class="imagenes">
+
+
+        <h4>CONEXIONES MÓDULO SD</h4>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Módulo SD</th>
+        <th>Arduino Uno / Nano</th>
+    </tr>
+    <tr>
+        <td>CS</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>SCK</td>
+        <td>13</td>
+    </tr>
+    <tr>
+        <td>MOSI</td>
+        <td>11</td>
+    </tr>
+    <tr>
+        <td>MISO</td>
+        <td>12</td>
+    </tr>
+    <tr>
+        <td>VCC</td>
+        <td>5 V </td>
+    </tr>
+      <tr>
+        <td>GND</td>
+        <td>GND</td>
+    </tr>
+</table>
+
     </div>
 </div>
 

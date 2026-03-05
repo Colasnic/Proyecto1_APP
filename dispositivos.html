@@ -16,8 +16,8 @@
 
 <div class="sidebar">
     <div class="logo">
-        <h2>💧 AquaControl</h2>
-        <span>Monitoreo Piscícola</span>
+        <h2>💧 OVA</h2>
+        <span>Sensor de oxigeno disuelto</span>
     </div>
 
     <ul class="menu">
@@ -26,14 +26,14 @@
         <li><a href="circuito.html">🔧 Circuito</a></li>
         <li><a href="codificacion.html">💻 Codificación</a></li>
         <li><a href="analisis.html">📊 Análisis de Datos</a></li>       
-        <li><a href="#">💧 Calidad del Agua</a></li>
         <li><a href="cargaArchivos.html">📂 Carga de archivos</a></li>
     </ul>
 </div>
 <!-- Main Content -->
 <div class="main home-bg">
     <div class="home-content">
-
+        <h1>Dispositivos</h1>
+        <p>A continuacion se presentaran los materiales necesarios para tomar los datos del oxigeno disuelto.</p>
     <h4>SENSOR DE OXIGENO DISUELTO</h4>
 
         <P>
@@ -47,7 +47,37 @@
 
         <img src="Imagenes/sensor.jpg" class="imagenes">
 
+        <p>
+            Para poner en funcionamiento una sonda nueva de oxígeno disuelto, es necesario agregar previamente una solución de hidróxido de sodio (NaOH) 0,5 mol/L en la tapa de la membrana, la cual actúa como solución de llenado.
+            Si la sonda ha estado en uso durante un período prolongado y se observa un aumento considerable en el error de medición, se recomienda reemplazar la solución de llenado siguiendo el procedimiento descrito a continuación.
+        </p>
 
+        <p><strong>Procedimiento de llenado</strong></p>
+        <p>
+            Desenrosque cuidadosamente la tapa de la membrana de la sonda.
+
+            Llene aproximadamente dos tercios (2/3) del volumen de la tapa con solución de NaOH 0,5 mol/L.
+
+            Mantenga la sonda en posición vertical respecto al plano horizontal durante todo el procedimiento.
+
+            Enrosque nuevamente la tapa con cuidado hasta ajustarla completamente.
+
+            Es normal que una pequeña cantidad de solución se desborde al cerrar la tapa; esto indica que el volumen de llenado es adecuado y que no quedan espacios de aire en el interior.
+        </p>
+       
+        <link rel="stylesheet" href="css/image.css">
+
+        <img src="Imagenes/NaoH.jpg" class="imagenes">
+        
+
+        <p><strong>Recomendaciones importantes</strong></p>
+        <p>
+            No llene completamente la tapa, ya que podría derramarse una cantidad excesiva de solución al cerrarla.
+            No agregue una cantidad insuficiente de solución, ya que pueden formarse burbujas de aire en el interior, afectando la precisión de las mediciones.
+            La cantidad recomendada es aproximadamente 2/3 del volumen total de la tapa.
+            Limpie cualquier exceso de solución con papel absorbente o tejido limpio.
+            Después de cada uso, cierre correctamente el frasco de solución de NaOH para evitar que el dióxido de carbono (CO₂) del aire altere su composición.
+        </p>
     <h4>PROCESO DE CALIBRACIÓN</h4>
         <p>
             Para garantizar la precisión de las mediciones, el sensor requiere un proceso de calibración previo. 
@@ -83,9 +113,21 @@
         <link rel="stylesheet" href="css/image.css">
 
         <img src="Imagenes/Arduino.jpg" class="imagenes">
+
+    <h4>MODULO MICROSD</h4>
+        <p>
+            El módulo MicroSD es un dispositivo electrónico que permite almacenar y leer información en una tarjeta de memoria MicroSD utilizando un microcontrolador como el Arduino. 
+            Este módulo es ampliamente empleado en sistemas de adquisición de datos, ya que facilita el registro continuo de mediciones en archivos digitales, como .txt o .csv, 
+            permitiendo posteriormente su análisis en un computador.<br><br>
+
+            El funcionamiento del módulo se basa en el protocolo de comunicación SPI (Serial Peripheral Interface), mediante el cual el microcontrolador envía y recibe datos 
+            a través de las líneas MOSI, MISO, SCK y CS. El módulo actúa como dispositivo esclavo y el Arduino como maestro, gestionando la escritura y lectura de archivos 
+            dentro de la tarjeta. De esta manera, los datos capturados por los sensores pueden almacenarse de forma organizada y segura para su posterior procesamiento.
+        </p>
     
+        <link rel="stylesheet" href="css/image.css">
 
-
+        <img src="Imagenes/SD.jpg" class="imagenes">
     </div>
 </div>
 
