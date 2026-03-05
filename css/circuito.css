@@ -275,7 +275,9 @@ table[cellspacing="8"] tr:hover td {
    - Color gris claro (#aaa) durante el reposo
    - Cambia a blanco (#fff) al hover/focus
    - Font-size: 28px para fácil clic
-   - cursor: pointer indica que es clickeable */
+   - cursor: pointer indica que es clickeable
+   - position: absolute lo coloca sobre el contenido
+   - z-index: 10 asegura que esté encima de la imagen */
 .close {
     color: #aaa;
     float: right;
@@ -283,6 +285,12 @@ table[cellspacing="8"] tr:hover td {
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    text-align: right;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
 }
 
 /* BOTÓN DE CERRAR - ESTADOS DE HOVER/FOCUS */
@@ -320,6 +328,51 @@ table[cellspacing="8"] tr:hover td {
     line-height: 1.6;
     border: 1px solid #3e3e3e;
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================================
+   ESTILOS PARA MODAL DE IMÁGENES
+   
+   Similar al modal de código pero optimizado
+   para mostrar imágenes ampliadas con scroll
+   y controles de cierre.
+   ==================================== */
+
+/* CONTENIDO DEL MODAL DE IMAGEN
+   - Adapta el tamaño según la imagen
+   - max-height: 80vh para evitar que sea demasiado grande
+   - Mantiene proporción con width: auto
+   - Overflow visible para mostrar toda la imagen */
+.modal-image-content {
+    background-color: transparent;
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    width: auto;
+    max-width: 80%;
+    max-height: 100%;
+    box-shadow: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* IMAGEN DENTRO DEL MODAL
+   - width: 100% para llenar el contenedor
+   - height: auto mantiene proporción original
+   - max-height: 85vh para no exceder altura de pantalla
+   - border-radius: 8px para bordes suavizados
+   - box-shadow: sombra profunda para efecto de flotación */
+.modal-image-content img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
 }
 
 /* ===================================

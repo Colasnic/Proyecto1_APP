@@ -96,7 +96,85 @@ window.onclick = function(event) {
    ==================================== */
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("codeModal");
-    if (modal) {
+    const imageModal = document.getElementById("imageModal");
+    if (modal ) {
         modal.style.display = "none";
     }
+
+    if (imageModal) {
+        imageModal.style.display = "none";
+    }
 });
+
+/* ===================================
+   CERRAR MODAL AL HACER CLIC FUERA
+   
+   Este handler cierra CUALQUIER modal cuando haces clic
+   en el overlay (fondo oscuro) de la página.
+   ==================================== */
+window.onclick = function(event) {
+    var codeModal = document.getElementById('codeModal');
+    var imageModal = document.getElementById('imageModal');
+    
+    /* Cerrar modal de código */
+    if (codeModal && event.target == codeModal) {
+        codeModal.style.display = 'none';
+    }
+    
+    /* Cerrar modal de imagen */
+    if (imageModal && event.target == imageModal) {
+        imageModal.style.display = 'none';
+    }
+}
+
+/* ===================================
+   FUNCIONES PARA MODAL DE IMÁGENES
+   
+   Permite ampliar las imágenes cuando el usuario
+   hace clic en ellas. Similar al modal de código
+   pero optimizado para mostrar imágenes en pantalla.
+   ==================================== */
+
+/* ===================================
+   openImageModal(imageSrc)
+   
+   Función: Abre el modal mostrando la imagen ampliada
+   
+   Parámetro:
+   - imageSrc: ruta de la imagen a mostrar
+   
+   ¿Cuándo se ejecuta?
+   - Cuando el usuario hace clic en cualquier imagen
+   - onclick="openImageModal(this.src)" en cada <img>
+   
+   ¿Qué hace?
+   1. Obtiene el modal del DOM
+   2. Obtiene el elemento <img> dentro del modal
+   3. Asigna la fuente de imagen (imageSrc)
+   4. Muestra el modal (display = 'block')
+   ==================================== */
+function openImageModal(imageSrc) {
+    var modal = document.getElementById('imageModal');
+    var img = document.getElementById('modalImage');
+    img.src = imageSrc;
+    modal.style.display = 'block';
+}
+
+/* ===================================
+   closeImageModal()
+   
+   Función: Cierra el modal de imagen
+   
+   ¿Cuándo se ejecuta?
+   - Cuando el usuario hace clic en el botón "×"
+   - Cuando hace clic fuera del modal (en el overlay)
+   
+   ¿Qué hace?
+   - Selecciona el modal con id "imageModal"
+   - Cambia su display a "none"
+   - La imagen desaparece inmediatamente
+   ==================================== */
+function closeImageModal() {
+    var modal = document.getElementById('imageModal');
+    modal.style.display = 'none';
+}

@@ -47,7 +47,7 @@
 
         <link rel="stylesheet" href="css/image.css">
 
-        <img src="Imagenes/Cirtucito.png" class="imagenes">
+        <img src="Imagenes/Cirtucito.png" class="imagenes" onclick="openImageModal(this.src)">
 
   
         <div class ="especificaciones-container">
@@ -120,7 +120,7 @@
         </p>
         <link rel="stylesheet" href="css/image.css">
 
-        <img src="Imagenes/Modulo_MicroSD.png" class="imagenes">
+        <img src="Imagenes/Modulo_MicroSD.png" class="imagenes" onclick="openImageModal(this.src)">
 
 
         <div class="conexiones-container">
@@ -188,6 +188,14 @@
                 }
             </code>
         </pre>
+    </div>
+</div>
+
+<!-- Modal para las imágenes -->
+<div id="imageModal" class="modal">
+    <div class="modal-image-content">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img id="modalImage" src="" alt="Imagen ampliada">
     </div>
 </div>
 
