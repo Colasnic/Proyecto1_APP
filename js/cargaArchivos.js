@@ -136,79 +136,68 @@ function generarSelectorColumnas(){
  * - Si ambas columnas son iguales, solo añade una serie.
  * - Destruye el gráfico previo (`chartCSV`) antes de crear uno nuevo.
  */
-function graficarColumnas(){
-
+function graficarColumnas() {
     if(!datasetGlobal || datasetGlobal.length === 0) return; // nada que graficar
 
-    const columna1 = document.getElementById("columnSelect").value;
-    const columna2 = document.getElementById("columnSelect2").value;
+    // ======= EJE X: combinar Fecha + Hora =======
+    const dataX = datasetGlobal.map(fila => {
+        // crear fecha legible: "dd/mm/yyyy hh:mm:ss"
+        return fila["Fecha"] + " " + fila["Hora"];
+    });
 
-    // Etiquetas X: por defecto usamos el índice de fila (1..N).
-    const labels = datasetGlobal.map((fila, index) => index + 1);
-
-    // Intenta convertir a número, aceptando coma decimal "2,5" -> 2.5
+    // ======= EJE Y: Temp(C) y Voltaje(mV) =======
     const parseNumber = (valor) => {
-        if (valor === undefined || valor === null) return null;
+        if (!valor) return null;
         const numero = Number(String(valor).replace(",", "."));
         return isNaN(numero) ? null : numero;
     };
 
-    // Construir arrays de datos para cada columna
-    const data1 = datasetGlobal.map(fila => parseNumber(fila[columna1]));
-    const data2 = datasetGlobal.map(fila => parseNumber(fila[columna2]));
+    const dataTemp = datasetGlobal.map(fila => parseNumber(fila["Temp(C)"]));
+    const dataVoltaje = datasetGlobal.map(fila => parseNumber(fila["Voltaje(mV)"]));
 
-    // Destruir gráfico anterior si existe
+    // ======= Destruir gráfico previo si existe =======
     if(chartCSV) chartCSV.destroy();
 
-    const colors = ["#2e7d32", "#1565c0", "#f57f17", "#c62828"];
-
-    const datasets = [];
-
-    // Agregar primera serie si existe selección
-    if (columna1) {
-        datasets.push({
-            label: columna1,
-            data: data1,
-            borderColor: colors[0],
-            backgroundColor: colors[0],
-            fill: false,
-            tension: 0.2
-        });
-    }
-
-    // Agregar segunda serie solo si es distinta a la primera
-    if (columna2 && columna2 !== columna1) {
-        datasets.push({
-            label: columna2,
-            data: data2,
-            borderColor: colors[1],
-            backgroundColor: colors[1],
-            fill: false,
-            tension: 0.2
-        });
-    }
-
-    // Crear nuevo gráfico (tipo línea por defecto)
+    // ======= Crear nuevo gráfico =======
     chartCSV = new Chart(
         document.getElementById("graficoCSV"),
         {
             type: "line",
             data: {
-                labels: labels,
-                datasets: datasets
+                labels: dataX, // eje X = Fecha + Hora
+                datasets: [
+                    {
+                        label: "Temp(C)",
+                        data: dataTemp,
+                        borderColor: "#2e7d32",
+                        backgroundColor: "#2e7d32",
+                        fill: false,
+                        tension: 0.2
+                    },
+                    {
+                        label: "Voltaje(mV)",
+                        data: dataVoltaje,
+                        borderColor: "#1565c0",
+                        backgroundColor: "#1565c0",
+                        fill: false,
+                        tension: 0.2
+                    }
+                ]
             },
             options: {
                 responsive: true,
-                plugins: {
-                    legend: { display: true }
-                },
-                interaction: {
-                    mode: 'index',
-                    intersect: false
-                },
+                plugins: { legend: { display: true } },
+                interaction: { mode: 'index', intersect: false },
                 scales: {
-                    x: { display: true, title: { display: true, text: "Index" } },
-                    y: { display: true }
+                    x: { 
+                        display: true, 
+                        title: { display: true, text: "Fecha / Hora" },
+                        ticks: { maxRotation: 90, minRotation: 45 }
+                    },
+                    y: { 
+                        display: true, 
+                        title: { display: true, text: "Valor" } 
+                    }
                 }
             }
         }
