@@ -3,11 +3,17 @@
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 thead {

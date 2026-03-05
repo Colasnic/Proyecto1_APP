@@ -1,0 +1,357 @@
+/* ===================================
+   CONTENEDOR DE ESPECIFICACIONES
+   
+   Este contenedor alberga la tabla de especificaciones
+   del módulo de oxígeno disuelto. Se usa flexbox para
+   el centrado y alineación de contenido.
+   
+   Estilos principales:
+   - Gradiente de fondo azul/gris
+   - Sombra suave para profundidad
+   - Padding: 25px en todos los lados
+   - BorderRadius: 12px
+   ==================================== */
+.especificaciones-container {
+    padding: 25px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Título del contenedor de especificaciones
+   Color oscuro, tamaño 18px, sin margen */
+.especificaciones-container h4 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin: 0;
+    font-weight: 700;
+}
+
+/* ===================================
+   CONTENEDOR DE CALIBRACIÓN
+   
+   Contiene el bloque de código Arduino para
+   calibración del sensor. El contenedor está
+   centrado y el contenido es interactivo
+   (se abre modal al hacer clic).
+   
+   Diferencia: padding asimétrico para distribución visual
+   ==================================== */
+.calibracion-container {
+    padding: 25px 35px 25px 15px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Título del contenedor de calibración
+   Centrado horizontalmente con text-align */
+.calibracion-container h4 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* ===================================
+   BLOQUE DE CÓDIGO (PRE)
+   
+   Estilos para el bloque de código Arduino.
+   - Fondo oscuro tipo IDE (#1e1e1e)
+   - Fuente monoespaciada para código
+   - Ancho completo del contenedor
+   - Interactivo: cursor pointer indica que es clickeable
+   - Transición suave al hover (0.3s)
+   ==================================== */
+.calibracion-container pre {
+    width: 100%;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    border: 1px solid #3e3e3e;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* EFECTO HOVER en el bloque de código
+   Al pasar el ratón:
+   - Sombra interior se hace más profunda
+   - Se agrega glow externo púrpura
+   - Borde cambia a color púrpura (#667eea)
+   Esto indica al usuario que el elemento es interactivo */
+.calibracion-container pre:hover {
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 10px rgba(102, 126, 234, 0.3);
+    border-color: #667eea;
+}
+
+/* Estilo para las etiquetas CODE dentro del PRE
+   Mantiene la transparencia del fondo (heredado del pre)
+   y ajusta el tamaño de fuente */
+.calibracion-container code {
+    background-color: transparent;
+    margin: 0;
+    color: #d4d4d4;
+    padding: 0;
+    font-size: 13px;
+}
+
+/* ===================================
+   RESALTADO DE SINTAXIS (SYNTAX HIGHLIGHTING)
+   
+   Sistema de colores para diferentes elementos del código:
+   - Palabras clave (#569cd6 Azul)
+   - Tipos de dato (#4ec9b0 Verde azulado)
+   - Nombres de función (#dcdcaa Amarillo)
+   - Variables (#9cdcfe Azul claro)
+   - Constantes (#4fc1ff Azul)
+   - Strings/Cadenas (#ce9178 Naranja)
+   - Números (#b5cea8 Verde)
+   - Comentarios (#6a9955 Verde oscuro + italica)
+   
+   Ejemplo de uso en HTML:
+   <span class="preprocessor">#include</span>
+   ==================================== */
+
+/* Directivas del preprocesador (#include, #define) */
+.preprocessor { color: #569cd6; font-weight: bold; }
+
+/* Palabras clave del lenguaje (void, if, while, etc) */
+.keyword { color: #569cd6; }
+
+/* Tipos de dato (uint32_t, int, float, etc) */
+.type { color: #4ec9b0; }
+
+/* Nombres de funciones (setup, loop, Serial.begin) */
+.function { color: #dcdcaa; }
+
+/* Nombres de variables */
+.variable { color: #9cdcfe; }
+
+/* Valores constantes (PI, VREF, etc) */
+.constant { color: #4fc1ff; }
+
+/* Cadenas de texto entre comillas */
+.string { color: #ce9178; }
+
+/* Valores numéricos literales */
+.number { color: #b5cea8; }
+
+/* Comentarios (// comentario) */
+.comment { color: #6a9955; font-style: italic; }
+
+/* ===================================
+   ESTILOS PARA LAS TABLAS
+   
+   Se aplican a:
+   1. .especificaciones-container table
+   2. table[cellspacing="8"]
+   
+   Las tablas tienen espaciado entre celdas (8px)
+   y usan JavaScript/HTML para la estructura semántica
+   ==================================== */
+
+/* configuración de espaciado de tabla
+   border-collapse: separate permite border-spacing
+   border-spacing: 8px crea espacio visible entre celdas */
+.especificaciones-container table,
+table[cellspacing="8"] {
+    border-collapse: separate;
+    border-spacing: 8px;
+    width: 100%;
+}
+
+/* ENCABEZADOS DE TABLA (TH)
+   - Fondo púrpura (#667eea) con texto blanco
+   - Padding: 14px 16px para espaciado interno
+   - Bordes redondeados (5px)
+   - Font-weight: 600 para mayor énfasis */
+.especificaciones-container table th,
+table[cellspacing="8"] th {
+    background-color: #667eea;
+    color: white;
+    padding: 14px 16px;
+    text-align: left;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* CELDAS DE DATO (TD)
+   - Borde sutil gris (#ddd)
+   - Bordes redondeados (5px)
+   - Padding: 14px 16px
+   - Fondo blanco
+   - Transición suave para efecto hover (0.3s) */
+.especificaciones-container table td,
+table[cellspacing="8"] td {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 14px 16px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* EFECTO HOVER EN FILAS
+   Al pasar el ratón sobre una fila:
+   - Fondo cambia a azul muy claro (#f5f5ff)
+   - Borde cambia a púrpura (#667eea)
+   Esto da feedback visual al usuario */
+.especificaciones-container table tr:hover td,
+table[cellspacing="8"] tr:hover td {
+    background-color: #f5f5ff;
+    border-color: #667eea;
+}
+
+/* ===================================
+   ESTILOS DEL MODAL (VENTANA EMERGENTE)
+   
+   El modal se abre cuando el usuario hace clic en el
+   bloque de código. Muestra el código ampliado en una
+   sobrecapa centrada en la pantalla.
+   ==================================== */
+
+/* CONTENEDOR MODAL (fondo oscuro)
+   - position: fixed cubre toda la pantalla
+   - z-index: 1000 asegura que esté encima de todo
+   - display: flex y sus propiedades centran el contenido
+   - background-color: rgba(0,0,0,0.8) fondo oscuro semi-transparente
+   - backdrop-filter: blur(5px) añade efecto de desenfoque al fondo */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+/* CONTENIDO DEL MODAL (caja de diálogo)
+   - max-width: 800px limita el ancho máximo
+   - width: 80% responde a pantallas pequeñas
+   - Mismo fondo oscuro que el código regular
+   - Sombra profunda para efecto de flotación
+   - position: relative para posicionar el botón de cerrar */
+.modal-content {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #3e3e3e;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+/* BOTÓN DE CERRAR (X)
+   - Botón flotante en la esquina superior derecha
+   - Color gris claro (#aaa) durante el reposo
+   - Cambia a blanco (#fff) al hover/focus
+   - Font-size: 28px para fácil clic
+   - cursor: pointer indica que es clickeable */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* BOTÓN DE CERRAR - ESTADOS DE HOVER/FOCUS */
+.close:hover,
+.close:focus {
+    color: #fff;
+}
+
+/* TÍTULO DEL MODAL (h4)
+   - Centrado horizontalmente
+   - Margen superior removido
+   - Tamaño más grande (24px) que en otros lugares
+   - Color gris claro (#d4d4d4) */
+.modal h4 {
+    color: #d4d4d4;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* BLOQUE DE CÓDIGO DENTRO DEL MODAL
+   - Similar al bloque regular pero:
+   - font-size: 14px (más grande que 13px en el bloque normal)
+   - Esto permite mejor legibilidad al ampliar el código
+   - Mismo resaltado de sintaxis se aplica */
+.modal-code {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    border: 1px solid #3e3e3e;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================================
+   CONTENEDOR DE CONEXIONES
+   
+   Alberga la tabla de conexiones del módulo SD con Arduino.
+   Usa los mismos estilos que especificaciones-container
+   para mantener consistencia visual en toda la página.
+   
+   Este contenedor es un buen ejemplo de reutilización
+   de estilos CSS para componentes similares.
+   ==================================== */
+.conexiones-container {
+    padding: 25px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Título del contenedor de conexiones
+   Mismo estilo que otros títulos h4 para consistencia */
+.conexiones-container h4 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin: 0;
+    font-weight: 700;
+}

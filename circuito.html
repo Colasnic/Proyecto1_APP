@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/circuito.css">
 
 </head>
 
@@ -48,112 +49,149 @@
 
         <img src="Imagenes/Cirtucito.png" class="imagenes">
 
-        <h4>ESPECIFICACIONES DEL MÓDULO</h4>
-    <div class="table-container">
-    <table border="1" cellpadding="8" cellspacing="0">
-    <tr>
-        <th>No</th>
-        <th>Etiqueta</th>
-        <th>Descripción</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>A</td>
-        <td>Salida de señal analógica</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>+</td>
-        <td>Vcc</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>-</td>
-        <td>GND</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>BCN</td>
-        <td>Conector cable sonda</td>
-    </tr>
-</table>
-    </div>
-<h4>CÓDIGO DE CALIBRACIÓN</h4>
-<div class="codigo">
-<pre class="Codigo">
-<code>
-#include &lt;Arduino.h&gt;
+  
+        <div class ="especificaciones-container">
+            <h4>ESPECIFICACIONES DEL MÓDULO</h4>
+            <table border="1"  cellpadding="12" cellspacing="8">
+                <tr>
+                    <th>No</th>
+                    <th>Etiqueta</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>A</td>
+                    <td>Salida de señal analógica</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>+</td>
+                    <td>Vcc</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>-</td>
+                    <td>GND</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>BCN</td>
+                    <td>Conector cable sonda</td>
+                </tr>
+            </table>
+        </div>
 
-#define VREF    5000 //VREF(mv)
-#define ADC_RES 1024 //ADC Resolution
+       
+        <div class="calibracion-container">
+            <h4>CÓDIGO DE CALIBRACIÓN</h4>
+            <pre class="code-block" onclick="openCodeModal()">
+                <code>
+                    <span class="preprocessor">#include</span> <span class="string">&lt;Arduino.h&gt;</span>
 
-uint32_t raw;
+                    <span class="preprocessor">#define</span> <span class="constant">VREF</span>    <span class="number">5000</span> <span class="comment">//VREF(mv)</span>
+                    <span class="preprocessor">#define</span> <span class="constant">ADC_RES</span> <span class="number">1024</span> <span class="comment">//ADC Resolution</span>
 
-void setup()
-{
-    Serial.begin(115200);
-}
+                    <span class="type">uint32_t</span> <span class="variable">raw</span>;
 
-void loop()
-{
-    raw=analogRead(A1);
-    Serial.println("raw:\t"+String(raw)+"\tVoltage(mv)"+String(raw*VREF/ADC_RES));
-    delay(1000);
-}
-</code>
-</pre>
-</div>
-     <h4>Conexion modulo arduino con SD</h4>
-    <p> 
-        Para conectar el módulo de oxígeno disuelto al Arduino, se deben seguir los siguientes pasos:
+                    <span class="keyword">void</span> <span class="function">setup</span>()
+                    {
+                        <span class="function">Serial.begin</span>(<span class="number">115200</span>);
+                    }
 
-        1. Conectar el pin de salida analógica (A) del módulo al pin A1 del Arduino.
-        2. Conectar el pin de alimentación positiva (+) del módulo al pin de 5V del Arduino.
-        3. Conectar el pin de tierra (-) del módulo al pin GND del Arduino.
-        4. Asegurarse de que la sonda esté correctamente conectada al conector BCN del módulo.
+                    <span class="keyword">void</span> <span class="function">loop</span>()
+                    {
+                        <span class="variable">raw</span>=<span class="function">analogRead</span>(<span class="constant">A1</span>);
+                        <span class="function">Serial.println</span>(<span class="string">"raw:\t"</span>+<span class="function">String</span>(<span class="variable">raw</span>)+<span class="string">"\tVoltage(mv)"</span>+<span class="function">String</span>(<span class="variable">raw</span>*<span class="constant">VREF</span>/<span class="constant">ADC_RES</span>));
+                        <span class="function">delay</span>(<span class="number">1000</span>);
+                    }
+                </code>
+            </pre>
+        </div>
+        <h4>Conexion modulo arduino con SD</h4>
+        <p> 
+            Para conectar el módulo de oxígeno disuelto al Arduino, se deben seguir los siguientes pasos:
 
-        Una vez realizadas estas conexiones, el Arduino podrá leer los valores analógicos proporcionados por el sensor de oxígeno disuelto y procesarlos según sea necesario para su aplicación específica.
-    </p>
-     <link rel="stylesheet" href="css/image.css">
+            1. Conectar el pin de salida analógica (A) del módulo al pin A1 del Arduino.
+            2. Conectar el pin de alimentación positiva (+) del módulo al pin de 5V del Arduino.
+            3. Conectar el pin de tierra (-) del módulo al pin GND del Arduino.
+            4. Asegurarse de que la sonda esté correctamente conectada al conector BCN del módulo.
+
+            Una vez realizadas estas conexiones, el Arduino podrá leer los valores analógicos proporcionados por el sensor de oxígeno disuelto y procesarlos según sea necesario para su aplicación específica.
+        </p>
+        <link rel="stylesheet" href="css/image.css">
 
         <img src="Imagenes/Modulo_MicroSD.png" class="imagenes">
 
 
-        <h4>CONEXIONES MÓDULO SD</h4>
+        <div class="conexiones-container">
+            <h4>CONEXIONES MÓDULO SD</h4>
 
-<table border="1" cellpadding="8" cellspacing="0">
-    <tr>
-        <th>Módulo SD</th>
-        <th>Arduino Uno / Nano</th>
-    </tr>
-    <tr>
-        <td>CS</td>
-        <td>4</td>
-    </tr>
-    <tr>
-        <td>SCK</td>
-        <td>13</td>
-    </tr>
-    <tr>
-        <td>MOSI</td>
-        <td>11</td>
-    </tr>
-    <tr>
-        <td>MISO</td>
-        <td>12</td>
-    </tr>
-    <tr>
-        <td>VCC</td>
-        <td>5 V </td>
-    </tr>
-      <tr>
-        <td>GND</td>
-        <td>GND</td>
-    </tr>
-</table>
+            <table border="1" cellpadding="12" cellspacing="8">
+                <tr>
+                    <th>Módulo SD</th>
+                    <th>Arduino Uno / Nano</th>
+                </tr>
+                <tr>
+                    <td>CS</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>SCK</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>MOSI</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>MISO</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>VCC</td>
+                    <td>5 V </td>
+                </tr>
+                <tr>
+                    <td>GND</td>
+                    <td>GND</td>
+                </tr>
+            </table>
+        </div>
 
     </div>
 </div>
+
+<!-- Modal para el código -->
+<div id="codeModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCodeModal()">&times;</span>
+        <h4>CÓDIGO DE CALIBRACIÓN</h4>
+        <pre class="modal-code">
+            <code>
+                <span class="preprocessor">#include</span> <span class="string">&lt;Arduino.h&gt;</span>
+
+                <span class="preprocessor">#define</span> <span class="constant">VREF</span>    <span class="number">5000</span> <span class="comment">//VREF(mv)</span>
+                <span class="preprocessor">#define</span> <span class="constant">ADC_RES</span> <span class="number">1024</span> <span class="comment">//ADC Resolution</span>
+
+                <span class="type">uint32_t</span> <span class="variable">raw</span>;
+
+                <span class="keyword">void</span> <span class="function">setup</span>()
+                {
+                    <span class="function">Serial.begin</span>(<span class="number">115200</span>);
+                }
+
+                <span class="keyword">void</span> <span class="function">loop</span>()
+                {
+                    <span class="variable">raw</span>=<span class="function">analogRead</span>(<span class="constant">A1</span>);
+                    <span class="function">Serial.println</span>(<span class="string">"raw:\t"</span>+<span class="function">String</span>(<span class="variable">raw</span>)+<span class="string">"\tVoltage(mv)"</span>+<span class="function">String</span>(<span class="variable">raw</span>*<span class="constant">VREF</span>/<span class="constant">ADC_RES</span>));
+                    <span class="function">delay</span>(<span class="number">1000</span>);
+                }
+            </code>
+        </pre>
+    </div>
+</div>
+
+<script src="js/circuito.js"></script>
 
 </body>
 </html>
